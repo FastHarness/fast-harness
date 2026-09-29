@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 430" role="img" aria-labelledby="t d" font-family="Arial, Helvetica, sans-serif">
+<title id="t">Fewer reviews, fewer tokens</title><desc id="d">Recorded reviewer tokens per episode: cold-start episode 1 versus the mean of the final five episodes, for each task. Tokens are recorded input + output.</desc>
+<rect width="1160" height="430" fill="#ffffff"/>
+<text x="40.00" y="40.00" font-size="22" fill="#1c2b2a" text-anchor="start" font-weight="700" >Fewer reviews, fewer tokens</text>
+<text x="40.00" y="66.00" font-size="13" fill="#5f7069" text-anchor="start" font-weight="normal" >Recorded reviewer tokens per episode — cold start (episode 1) vs. the warm mean of the last five episodes.</text>
+<text x="187.50" y="88.00" font-size="13" fill="#176f63" text-anchor="middle" font-weight="700" >Build tower</text>
+<line x1="70.00" y1="358.00" x2="305.00" y2="358.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<text x="62.00" y="362.00" font-size="10" fill="#5f7069" text-anchor="end" font-weight="normal" >0.0</text>
+<line x1="70.00" y1="295.50" x2="305.00" y2="295.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<text x="62.00" y="299.50" font-size="10" fill="#5f7069" text-anchor="end" font-weight="normal" >0.5</text>
+<line x1="70.00" y1="233.00" x2="305.00" y2="233.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<text x="62.00" y="237.00" font-size="10" fill="#5f7069" text-anchor="end" font-weight="normal" >1.0</text>
+<line x1="70.00" y1="170.50" x2="305.00" y2="170.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<text x="62.00" y="174.50" font-size="10" fill="#5f7069" text-anchor="end" font-weight="normal" >1.5</text>
+<line x1="70.00" y1="108.00" x2="305.00" y2="108.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<text x="62.00" y="112.00" font-size="10" fill="#5f7069" text-anchor="end" font-weight="normal" >2.0</text>
+<line x1="70.00" y1="108.00" x2="70.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<line x1="70.00" y1="358.00" x2="305.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<rect x="105.25" y="180.21" width="70.50" height="177.79" fill="#cbd6d3" stroke="#9fb2ad" stroke-width="0.7"/>
+<rect x="199.25" y="299.68" width="70.50" height="58.32" fill="#176f63" stroke="#0f5249" stroke-width="0.7"/>
+<text x="140.50" y="172.21" font-size="10.5" fill="#1c2b2a" text-anchor="middle" font-weight="700" >1.42</text>
+<text x="234.50" y="291.68" font-size="10.5" fill="#176f63" text-anchor="middle" font-weight="700" >0.47</text>
+<text x="140.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >ep1</text>
+<text x="234.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >warm</text>
+<text x="187.50" y="398.00" font-size="12" fill="#176f63" text-anchor="middle" font-weight="700" >-67%</text>
+<text x="20.00" y="233.00" font-size="11" fill="#1c2b2a" text-anchor="middle" font-weight="normal" transform="rotate(-90 20.0 233.0)">Tokens / episode (M)</text>
+<text x="462.50" y="88.00" font-size="13" fill="#176f63" text-anchor="middle" font-weight="700" >Stack bowls</text>
+<line x1="345.00" y1="358.00" x2="580.00" y2="358.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="295.50" x2="580.00" y2="295.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="233.00" x2="580.00" y2="233.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="170.50" x2="580.00" y2="170.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="108.00" x2="580.00" y2="108.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="108.00" x2="345.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<line x1="345.00" y1="358.00" x2="580.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<rect x="380.25" y="240.88" width="70.50" height="117.12" fill="#cbd6d3" stroke="#9fb2ad" stroke-width="0.7"/>
+<rect x="474.25" y="327.85" width="70.50" height="30.15" fill="#176f63" stroke="#0f5249" stroke-width="0.7"/>
+<text x="415.50" y="232.88" font-size="10.5" fill="#1c2b2a" text-anchor="middle" font-weight="700" >0.94</text>
+<text x="509.50" y="319.85" font-size="10.5" fill="#176f63" text-anchor="middle" font-weight="700" >0.24</text>
+<text x="415.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >ep1</text>
+<text x="509.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >warm</text>
+<text x="462.50" y="398.00" font-size="12" fill="#176f63" text-anchor="middle" font-weight="700" >-74%</text>
+<text x="737.50" y="88.00" font-size="13" fill="#1c2b2a" text-anchor="middle" font-weight="600" >Fold clothes</text>
+<line x1="620.00" y1="358.00" x2="855.00" y2="358.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="295.50" x2="855.00" y2="295.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="233.00" x2="855.00" y2="233.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="170.50" x2="855.00" y2="170.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="108.00" x2="855.00" y2="108.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="108.00" x2="620.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<line x1="620.00" y1="358.00" x2="855.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<rect x="655.25" y="267.55" width="70.50" height="90.45" fill="#cbd6d3" stroke="#9fb2ad" stroke-width="0.7"/>
+<rect x="749.25" y="326.51" width="70.50" height="31.49" fill="#176f63" stroke="#0f5249" stroke-width="0.7"/>
+<text x="690.50" y="259.55" font-size="10.5" fill="#1c2b2a" text-anchor="middle" font-weight="700" >0.72</text>
+<text x="784.50" y="318.51" font-size="10.5" fill="#176f63" text-anchor="middle" font-weight="700" >0.25</text>
+<text x="690.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >ep1</text>
+<text x="784.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >warm</text>
+<text x="737.50" y="398.00" font-size="12" fill="#176f63" text-anchor="middle" font-weight="700" >-65%</text>
+<text x="1012.50" y="83.00" font-size="13" fill="#1c2b2a" text-anchor="middle" font-weight="600" >Put bottles</text>
+<text x="1012.50" y="94.00" font-size="13" fill="#1c2b2a" text-anchor="middle" font-weight="600" >into dustbin</text>
+<line x1="895.00" y1="358.00" x2="1130.00" y2="358.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="295.50" x2="1130.00" y2="295.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="233.00" x2="1130.00" y2="233.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="170.50" x2="1130.00" y2="170.50" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="108.00" x2="1130.00" y2="108.00" stroke="#e7ecea" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="108.00" x2="895.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<line x1="895.00" y1="358.00" x2="1130.00" y2="358.00" stroke="#3a4a48" stroke-width="1" stroke-dasharray=""/>
+<rect x="930.25" y="153.21" width="70.50" height="204.79" fill="#cbd6d3" stroke="#9fb2ad" stroke-width="0.7"/>
+<rect x="1024.25" y="285.19" width="70.50" height="72.81" fill="#176f63" stroke="#0f5249" stroke-width="0.7"/>
+<text x="965.50" y="145.21" font-size="10.5" fill="#1c2b2a" text-anchor="middle" font-weight="700" >1.64</text>
+<text x="1059.50" y="277.19" font-size="10.5" fill="#176f63" text-anchor="middle" font-weight="700" >0.58</text>
+<text x="965.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >ep1</text>
+<text x="1059.50" y="376.00" font-size="10" fill="#5f7069" text-anchor="middle" font-weight="normal" >warm</text>
+<text x="1012.50" y="398.00" font-size="12" fill="#176f63" text-anchor="middle" font-weight="700" >-64%</text>
+<text x="580.00" y="418.00" font-size="10.5" fill="#5f7069" text-anchor="middle" font-weight="normal" >Tokens = recorded input + output (cached input included).</text>
+</svg>

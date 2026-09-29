@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fast-harness"
+version = "0.1.0"
+description = "A robot policy that learns to skip its own reviews: teacher calls and tokens fall with every repetition, while task success holds"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "fast-harness contributors"}]
+dependencies = []
+
+[project.optional-dependencies]
+robodojo = ["numpy>=1.26", "Pillow>=9"]
+
+[project.scripts]
+fast-harness = "fast_harness.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["fast_harness"]

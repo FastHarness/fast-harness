@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="harness-diagram" xmlns="http://www.w3.org/2000/svg" width="2000" height="1250" viewBox="0 0 2000 1250" role="img" aria-labelledby="diagram-title diagram-desc">
+<title id="diagram-title">fast-harness: an experience-driven execution loop</title>
+<desc id="diagram-desc">The legacy VLA, GPT-6 review, and execution components sit equidistant on one light-gray baseline. The gray VLA-to-GPT-6 arrow is a legacy reference, not a bypass of scheduling once the harness is enabled. With the harness on, every fresh proposal first enters the teal adaptive scheduler; when no review is triggered it takes the green zero-call fast path straight to execution, otherwise it returns to the gray review node. The three top enhancements are experience accumulation, optional persistent review, and optional span budget; below, the sand-colored bounded recovery shows three mechanisms: repair in place, return to a verified waypoint, and remembering the failure. Review evidence is written back to both memory tables; recovery only writes counts and evidence to the failure table. The two tables and bounded recovery are inherited harness capabilities. No outer frame.</desc>
+<defs>
+<style>
+text{font-family:"DejaVu Sans","Droid Sans Fallback","Noto Sans CJK SC","Microsoft YaHei",sans-serif;fill:#293e3d}
+.title{font-size:32px;font-weight:600;letter-spacing:-.5px}
+.node-title{font-size:24px;font-weight:600}
+.card-title{font-size:22px;font-weight:600}
+.body{font-size:20px}
+.small{font-size:18px}
+.tiny{font-size:16px}
+.micro{font-size:14px}
+.step{font-size:15px;fill:#8b96a3;letter-spacing:1px}
+.strong{font-weight:600}
+.muted{fill:#5f7069}
+.teal{fill:#246d64}
+.green{fill:#176f63}
+.amber{fill:#8c6338}
+.white{fill:#fff}
+.soft-white{fill:#dceee8}
+.plain-node{fill:#f0f1f3;stroke:#d4d7dc;stroke-width:1.4}
+[data-origin="generic"] text{fill:#646d77}
+.memory-card{fill:#edf6f2;stroke:#79a99b;stroke-width:1.6}
+.scheduler{fill:#edf6f2;stroke:#79a99b;stroke-width:1.8}
+.fast-node{fill:#176f63;stroke:#176f63;stroke-width:1.5}
+.review-node{fill:#faf3e8;stroke:#c3a078;stroke-width:1.8}
+.rule{fill:none;stroke:#e0e5eb;stroke-width:1}
+.wire{fill:none;stroke:#b6bcc5;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.schedule-wire{fill:none;stroke:#79a99b;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+.fast-wire{fill:none;stroke:#176f63;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.review-wire{fill:none;stroke:#b48c5e;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.data-wire{fill:none;stroke:#96b6ad;stroke-width:1.5;stroke-dasharray:5 5;stroke-linejoin:round;stroke-linecap:round}
+.error-data{fill:none;stroke:#bfab90;stroke-width:1.5;stroke-dasharray:5 5;stroke-linejoin:round;stroke-linecap:round}
+.span-wire{fill:none;stroke:#96b6ad;stroke-width:1.5;stroke-dasharray:5 5;stroke-linejoin:round;stroke-linecap:round}
+.math{font-family:"Nimbus Roman","Times New Roman","Droid Sans Fallback",serif;font-size:25px}
+.sub{font-size:70%;baseline-shift:sub}.sup{font-size:70%;baseline-shift:super}
+</style>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#b6bcc5"/></marker>
+<marker id="arrow-schedule" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#79a99b"/></marker>
+<marker id="arrow-green" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 12 6 0 12Z" fill="#176f63"/></marker>
+<marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 10 5 0 10Z" fill="#b48c5e"/></marker>
+<marker id="arrow-data" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 9 4.5 0 9Z" fill="#96b6ad"/></marker>
+<marker id="arrow-error" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 9 4.5 0 9Z" fill="#bfab90"/></marker>
+<marker id="arrow-span" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 9 4.5 0 9Z" fill="#96b6ad"/></marker>
+</defs>
+<rect width="2000" height="1250" fill="#fff"/>
+<text x="50" y="54.9" class="title">Fast Harness · An experience-driven execution loop</text>
+<text x="50" y="84.6" class="small muted">Fewer GPT-6 calls · graded recovery on error · evidence reused across rounds</text>
+<g id="color-legend" transform="translate(216,0)">
+<g aria-hidden="true">
+<circle cx="421" cy="141.3" r="8" fill="#e3e6e9" stroke="#c8cdd2"/>
+<circle cx="666" cy="141.3" r="8" fill="#438e7f"/>
+<circle cx="924" cy="141.3" r="8" fill="#c3a078"/>
+</g>
+<text x="447" y="147.6" class="small muted">Gray: baseline loop</text>
+<text x="692" y="147.6" class="small strong teal">Teal: the fast path</text>
+<text x="950" y="147.6" class="small strong amber">Sand: the recovery path</text>
+</g>
+
+<path id="review-evidence-writeback" d="M1200 706.5H1575V544.5 M1575 533.7V186.3H585V196.2" class="data-wire" marker-end="url(#arrow-data)"/>
+<path id="review-to-errors" d="M975 186.3V196.2" class="data-wire" marker-end="url(#arrow-data)"/>
+<circle cx="975" cy="186.3" r="2.5" fill="#96b6ad"/>
+<path id="recovery-evidence-writeback" d="M1540 1116H1610V747.9 M1610 737.1V544.5 M1610 533.7V398.7H1581 M1569 398.7H1316 M1304 398.7H1130V376.2" class="error-data" marker-end="url(#arrow-error)"/>
+
+<g id="success-table" data-origin="harness" data-capability="inherited">
+<rect x="410" y="196.2" width="350" height="180" rx="6" class="memory-card"/>
+<g class="feature-heading" data-feature="accumulation">
+<text x="432" y="238.5" class="node-title teal">Pure accumulation</text>
+</g>
+<text x="432" y="294.5" class="small">Reviewed outcomes → reliability</text>
+<text x="432" y="330.5" class="small muted">Never decays across rounds</text>
+</g>
+<g id="failure-table" data-origin="harness" data-capability="inherited">
+<rect x="800" y="196.2" width="350" height="180" rx="6" class="memory-card"/>
+<g class="feature-heading" data-feature="persistent-error-review">
+<text x="822" y="238.5" class="node-title teal">Persistent error review</text>
+</g>
+<text x="822" y="294.5" class="small amber">Force review near past failures</text>
+<text x="822" y="330.5" class="small muted">Kept even after recovery</text>
+</g>
+<g id="stage-span-memory" data-origin="harness" data-feature="span-commit">
+<rect x="1190" y="196.2" width="350" height="180" rx="6" class="memory-card"/>
+<g class="feature-heading">
+<text x="1212" y="238.5" class="node-title teal">Span budget</text>
+</g>
+<text x="1212" y="294.5" class="small teal">Extend skip budget by span</text>
+<text x="1212" y="330.5" class="small muted">Reliable stages far from failure</text>
+</g>
+
+<path d="M560 376.2V460.8" class="data-wire" marker-end="url(#arrow-data)"/>
+<path d="M870 376.2V405.9H780V460.8" class="error-data" marker-end="url(#arrow-error)"/>
+<path d="M1310 376.2V428.4H1046 M1034 428.4H830V460.8" class="span-wire" marker-end="url(#arrow-span)"/>
+<path id="errors-to-review" d="M1090 376.2V404.1H1040V533.7 M1040 544.5V644.4H1115V675" class="error-data" marker-end="url(#arrow-error)"/>
+<text x="541" y="423" text-anchor="end" class="tiny teal">reliability</text>
+<text x="758" y="423" text-anchor="end" class="tiny amber">near failure</text>
+<text x="1290" y="421.2" text-anchor="end" class="tiny teal">skip-step budget</text>
+
+<g id="stage-proposal" data-step="1">
+<g id="fresh-proposal" data-origin="generic" data-baseline-step="1">
+<rect x="50" y="675" width="250" height="135" rx="6" class="plain-node"/>
+<text x="175" y="711.9" text-anchor="middle" class="node-title">VLA · π0.5</text>
+<text x="175" y="751.5" text-anchor="middle" class="small">New obs → action chunk</text>
+<text x="175" y="787.5" text-anchor="middle" class="tiny muted">Fresh each chunk, no replay</text>
+</g>
+</g>
+<path id="baseline-proposal-review" data-flow="baseline-reference" d="M300 742.5H800" class="wire" marker-end="url(#arrow)"/>
+<text id="baseline-label" x="550" y="776.7" text-anchor="middle" class="small muted">Legacy: ask GPT-6 every chunk</text>
+<path id="proposal-to-scheduler" d="M175 675V539.1H410" class="schedule-wire" marker-end="url(#arrow-schedule)"/>
+<text x="195" y="627.3" class="tiny teal">proposal goes to scheduler first</text>
+<g id="stage-schedule" data-step="2">
+<g id="adaptive-scheduler" data-origin="harness">
+<rect x="410" y="460.8" width="440" height="156.6" rx="6" class="scheduler"/>
+<text x="434" y="496.8" class="node-title teal">Adaptive scheduler</text>
+<text x="826" y="493.2" text-anchor="end" class="tiny teal">review on demand</text>
+<text x="630" y="531" text-anchor="middle" class="small teal">Skip reliable stages; review unfamiliar / failed</text>
+<text x="630" y="574.2" text-anchor="middle" class="tiny muted">still bounded by step cap and spot audits</text>
+</g>
+</g>
+<path id="scheduler-to-fast-path" d="M850 539.1H1080" class="fast-wire" marker-end="url(#arrow-green)"/>
+<g id="stage-route" data-step="3">
+<g id="zero-call-fast-path" data-origin="harness">
+<rect x="1080" y="460.8" width="460" height="156.6" rx="6" class="fast-node"/>
+<text x="1104" y="496.8" class="card-title white">Zero-call fast path</text>
+<text x="1514" y="493.2" text-anchor="end" class="tiny soft-white">calls saved</text>
+<text x="1310" y="545.4" text-anchor="middle" class="white strong" style="font-size:36px">0 GPT-6 requests</text>
+<text x="1310" y="585" text-anchor="middle" class="small soft-white">no review this chunk; release the new proposal</text>
+</g>
+</g>
+<path id="fast-path-to-execution" d="M1540 539.1H1825V675" class="fast-wire" marker-end="url(#arrow-green)"/>
+<text x="1805" y="627.3" text-anchor="end" class="tiny green">skip straight through</text>
+<path id="scheduler-to-review" d="M740 617.4V643.5H880V675" class="review-wire" marker-end="url(#arrow-amber)"/>
+<text x="900" y="661.5" class="small amber">review triggered</text>
+<text x="1135" y="663.3" class="micro amber">cases + recovery evidence</text>
+<text x="1558" y="697.5" text-anchor="end" class="micro teal">review evidence writeback</text>
+<g id="conditional-teacher" data-origin="generic" data-baseline-step="2">
+<rect x="800" y="675" width="400" height="135" rx="6" class="plain-node"/>
+<text x="1000" y="711.9" text-anchor="middle" class="node-title">GPT-6 review</text>
+<text x="1000" y="751.5" text-anchor="middle" class="small">Review action · pass / correct</text>
+<text x="1000" y="787.5" text-anchor="middle" class="tiny muted">re-check previous chunk's result</text>
+</g>
+<path id="baseline-review-execution" data-flow="baseline-shared" d="M1200 742.5H1700" class="wire" marker-end="url(#arrow)"/>
+<g id="stage-execute" data-step="4">
+<g id="validated-execution" data-origin="generic" data-baseline-step="3">
+<rect x="1700" y="675" width="250" height="135" rx="6" class="plain-node"/>
+<text x="1825" y="711.9" text-anchor="middle" class="node-title">Validated exec</text>
+<text x="1825" y="738" text-anchor="middle" class="tiny muted">freshness / action range</text>
+<text x="1825" y="761.4" text-anchor="middle" class="tiny muted">gate / IK</text>
+<text x="1825" y="787.5" text-anchor="middle" class="small">execute → ACK</text>
+</g>
+</g>
+
+<path id="review-to-recovery" d="M860 810V842.4H660V867.6" class="review-wire" marker-end="url(#arrow-amber)"/>
+<text x="790" y="834.3" text-anchor="end" class="tiny amber">anomaly</text>
+<path id="recovery-to-review" d="M1490 867.6V842.4H1150V810" class="review-wire" marker-end="url(#arrow-amber)"/>
+<text x="1370" y="834.3" text-anchor="end" class="tiny amber">replan</text>
+<g id="bounded-recovery" data-origin="harness" data-capability="inherited">
+<rect x="410" y="867.6" width="1130" height="291.6" rx="6" class="review-node"/>
+<text x="434" y="909" class="node-title amber">Bounded recovery</text>
+<text x="1516" y="907.2" text-anchor="end" class="small amber">every chunk reviewed · bounded budget</text>
+<g id="recovery-local">
+<rect x="434" y="937.8" width="326" height="129.6" rx="6" fill="#fffcf6" stroke="#d4b997" stroke-width="1.4"/>
+<text x="597" y="985.5" text-anchor="middle" class="node-title amber">Repair in place</text>
+<text x="597" y="1031.4" text-anchor="middle" class="small muted">fix from current state</text>
+</g>
+<path d="M760 1002.6H812" class="review-wire" marker-end="url(#arrow-amber)"/>
+<g id="recovery-latest">
+<rect x="812" y="937.8" width="326" height="129.6" rx="6" fill="#fffcf6" stroke="#d4b997" stroke-width="1.4"/>
+<text x="975" y="985.5" text-anchor="middle" class="node-title amber">Return to waypoint</text>
+<text x="975" y="1031.4" text-anchor="middle" class="small muted">recent first, then earlier</text>
+</g>
+<g id="recovery-selected">
+<rect x="1190" y="937.8" width="326" height="129.6" rx="6" fill="#fffcf6" stroke="#d4b997" stroke-width="1.4"/>
+<text x="1353" y="985.5" text-anchor="middle" class="node-title amber">Remember the failure</text>
+<text x="1353" y="1031.4" text-anchor="middle" class="small muted">review it next time</text>
+</g>
+<text x="434" y="1113" class="tiny muted">recovery does not add to normal VLA success/fail counts</text>
+</g>
+<path d="M1825 810V1224H1130 M855 1224H175V810" class="data-wire" marker-end="url(#arrow-data)"/>
+<text x="992.5" y="1230.3" text-anchor="middle" class="small muted">execution feedback → new observation</text>
+</svg>
